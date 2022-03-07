@@ -5,7 +5,8 @@ by some k-dependent prefactor. Also below is code for setting up basis sets.
 
 To reduce the need to evaluate the basis functions at the same sample
 points repeatedly, we use pseudo-Vandermonde matrices a lot, see for example
-`this Numpy function <https://www.numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.legvander.html>`_.
+`this Numpy function <https://www.numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.legvander.html>`_
+(but instead of using Legendre polynomials, the pseudo-Vandermonde matrix is evaluated using the given basis set).
 
 Example use: to check for convergence of a Primodal expansion, use the appropriate "set_up_X_basis"
 to set up a smaller basis, use convert_between_bases to reduce the coefficients to that smaller basis,
@@ -14,11 +15,6 @@ then use err_between_coeffs to get the fractional difference between the two set
 Another example use: if you have some template already (i.e. not from Primodal) you can use the
 code below to decompose it in an appropriate basis to match with BEstModal.
 """
-
-## # TODO: add optimize=True to all the einsums (though this is only in the most recent numpy version).
-## # Add docstring to all functions
-## # Remove unnecessary functions
-## # Include example coefficients for tests (one equil, one local)
 
 import numpy as np
 import math
