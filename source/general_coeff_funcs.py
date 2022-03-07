@@ -13,7 +13,7 @@ to set up a smaller basis, use convert_between_bases to reduce the coefficients 
 then use err_between_coeffs to get the fractional difference between the two sets of coefficients.
 
 Another example use: if you have some template already (i.e. not from Primodal) you can use the
-code below to decompose it in an appropriate basis to match with BEstModal.
+code below (get_coeffs, to be precise) to decompose it in an appropriate basis to match with BEstModal.
 """
 
 import numpy as np
@@ -27,7 +27,7 @@ try:
     ## # Python doesn't catch the failed import until the function is called.
     leggauss(3)
 except:
-    print('Using numpy leggauss, less accurate than QUADPTS')
+    print('Using Numpy leggauss--- this is less accurate than QUADPTS, so be careful with convergence.')
     from numpy.polynomial.legendre import leggauss
 from numpy.polynomial.legendre import legvander
 from scipy.special import eval_legendre
